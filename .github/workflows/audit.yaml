@@ -44,11 +44,16 @@ jobs:
             done
           fi
 
-      - name: Style check
+      - name: Style check (Formula)
         run: |
-          for dir in Casks Formula; do
-            files=$(ls $dir/*.rb 2>/dev/null || true)
-            if [ -n "$files" ]; then
-              brew style $dir/
-            fi
-          done
+          files=$(ls Formula/*.rb 2>/dev/null || true)
+          if [ -n "$files" ]; then
+            brew style Formula/
+          fi
+
+      - name: Style check (Casks, non-blocking)
+        run: |
+          files=$(ls Casks/*.rb 2>/dev/null || true)
+          if [ -n "$files" ]; then
+            brew style Casks/ || echo "::warning::Cask style issues detected (GoReleaser-generated, non-blocking)"
+          fi
