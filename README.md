@@ -1,21 +1,32 @@
 # Homebrew Tap
 
-Custom Homebrew formulae for the tap toolchain.
+Custom Homebrew casks for the tap toolchain.
 
 ## Usage
+
+### macOS (Homebrew)
 
 ```bash
 # Add the tap (one-time setup)
 brew tap hironow/tap
 
 # Install tools
-brew install hironow/tap/phonewave
-brew install hironow/tap/sightjack
-brew install hironow/tap/amadeus
-brew install hironow/tap/paintress
+brew install --cask hironow/tap/phonewave
+brew install --cask hironow/tap/sightjack
+brew install --cask hironow/tap/amadeus
+brew install --cask hironow/tap/paintress
 
 # Update
-brew update && brew upgrade
+brew update && brew upgrade --cask
+```
+
+### Any platform (Go)
+
+```bash
+go install github.com/hironow/phonewave@latest
+go install github.com/hironow/sightjack@latest
+go install github.com/hironow/amadeus@latest
+go install github.com/hironow/paintress@latest
 ```
 
 ## Tools
@@ -29,7 +40,7 @@ brew update && brew upgrade
 
 ## How it works
 
-Formulae in `Formula/` are automatically updated by [GoReleaser](https://goreleaser.com/)
+Casks in `Casks/` are automatically updated by [GoReleaser](https://goreleaser.com/)
 when a new version is tagged in each tool's repository.
 
 ## License

@@ -18,24 +18,42 @@ jobs:
           mkdir -p "$(brew --repository)/Library/Taps/hironow"
           ln -s "$GITHUB_WORKSPACE" "$(brew --repository)/Library/Taps/hironow/homebrew-tap"
 
+      - name: Audit casks
+        run: |
+          casks=$(ls Casks/*.rb 2>/dev/null || true)
+          if [ -z "$casks" ]; then
+            echo "No casks found yet - skipping audit"
+          else
+            for f in Casks/*.rb; do
+              name=$(basename "$f" .rb)
+              echo "Auditing cask $name..."
+              brew audit --cask "hironow/tap/$name" || exit 1
+            done
+          fi
+
       - name: Audit formulae
         run: |
           formulae=$(ls Formula/*.rb 2>/dev/null || true)
           if [ -z "$formulae" ]; then
-            echo "No formulae found yet — skipping audit"
-            exit 0
+            echo "No formulae found - skipping"
+          else
+            for f in Formula/*.rb; do
+              name=$(basename "$f" .rb)
+              echo "Auditing formula $name..."
+              brew audit --formula "hironow/tap/$name" || exit 1
+            done
           fi
-          for f in Formula/*.rb; do
-            name=$(basename "$f" .rb)
-            echo "Auditing $name..."
-            brew audit --formula "hironow/tap/$name" || exit 1
-          done
 
-      - name: Style check
+      - name: Style check (Formula)
         run: |
-          formulae=$(ls Formula/*.rb 2>/dev/null || true)
-          if [ -z "$formulae" ]; then
-            echo "No formulae found yet — skipping style check"
-            exit 0
+          files=$(ls Formula/*.rb 2>/dev/null || true)
+          if [ -n "$files" ]; then
+            brew style Formula/
           fi
-          brew style Formula/
+
+      - name: Style check (Casks, non-blocking)
+        run: |
+          files=$(ls Casks/*.rb 2>/dev/null || true)
+          if [ -n "$files" ]; then
+            brew style Casks/ || echo "::warning::Cask style issues detected (GoReleaser-generated, non-blocking)"
+          fi
