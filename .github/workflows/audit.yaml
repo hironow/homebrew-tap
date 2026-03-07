@@ -20,7 +20,7 @@ jobs:
 
       - name: Audit formulae
         run: |
-          formulae=$(ls Formula/*.rb 2>/dev/null)
+          formulae=$(ls Formula/*.rb 2>/dev/null || true)
           if [ -z "$formulae" ]; then
             echo "No formulae found yet — skipping audit"
             exit 0
@@ -33,7 +33,7 @@ jobs:
 
       - name: Style check
         run: |
-          formulae=$(ls Formula/*.rb 2>/dev/null)
+          formulae=$(ls Formula/*.rb 2>/dev/null || true)
           if [ -z "$formulae" ]; then
             echo "No formulae found yet — skipping style check"
             exit 0
