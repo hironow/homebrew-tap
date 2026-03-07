@@ -1,0 +1,41 @@
+name: Audit
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  audit:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Tap self
+        run: |
+          mkdir -p "$(brew --repository)/Library/Taps/hironow"
+          ln -s "$GITHUB_WORKSPACE" "$(brew --repository)/Library/Taps/hironow/homebrew-tap"
+
+      - name: Audit formulae
+        run: |
+          formulae=$(ls Formula/*.rb 2>/dev/null)
+          if [ -z "$formulae" ]; then
+            echo "No formulae found yet — skipping audit"
+            exit 0
+          fi
+          for f in Formula/*.rb; do
+            name=$(basename "$f" .rb)
+            echo "Auditing $name..."
+            brew audit --formula "hironow/tap/$name" || exit 1
+          done
+
+      - name: Style check
+        run: |
+          formulae=$(ls Formula/*.rb 2>/dev/null)
+          if [ -z "$formulae" ]; then
+            echo "No formulae found yet — skipping style check"
+            exit 0
+          fi
+          brew style Formula/
