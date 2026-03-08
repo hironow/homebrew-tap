@@ -1,0 +1,16 @@
+# OS
+.DS_Store
+# build artifacts
+/dist/
+# test
+coverage.out
+# environment-specific local files (must not contain full paths)
+*.local.*
+# claude local settings
+.claude/*.local.*
+# git worktrees
+.worktrees/
+# plan drafts (ephemeral)
+docs/plans/
+# firebase local debug log
+firebase-debug.log
