@@ -3,7 +3,7 @@ cask "sightjack" do
   name "sightjack"
   desc "SIREN-inspired issue architecture tool for Linear"
   homepage "https://github.com/hironow/sightjack"
-  version "0.0.3"
+  version "0.0.4"
 
   livecheck do
     skip "Auto-generated on release."
@@ -14,22 +14,22 @@ cask "sightjack" do
   on_macos do
     on_intel do
       url "https://github.com/hironow/sightjack/releases/download/v#{version}/sightjack_#{version}_darwin_amd64.tar.gz"
-      sha256 "4406b32ea3c7e61aabde7ea6abd0e773d9a952ec70069b628d5c5c26fedfb3d4"
+      sha256 "9f2fad764492780cefa3dccb5568bcd6c04f6e8935b48d7e29b76c5fa9c2888a"
     end
     on_arm do
       url "https://github.com/hironow/sightjack/releases/download/v#{version}/sightjack_#{version}_darwin_arm64.tar.gz"
-      sha256 "e25b94b5315b319d8e082690615e1843316cd97ba1d6f7bead3a802f6ad9da36"
+      sha256 "c7c3cdfaa82f2333d1089828e566fcbeec8d932491072dc0d21468420dcdafca"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/hironow/sightjack/releases/download/v#{version}/sightjack_#{version}_linux_amd64.tar.gz"
-      sha256 "8e93950569f998201e27c3e7d710444237ffbdafdbf605697bbeaa18e5ec16e0"
+      sha256 "fa11e848e3393fd741219437950dfd082781a4b054c8d1330a4f4f0d5d7062e5"
     end
     on_arm do
       url "https://github.com/hironow/sightjack/releases/download/v#{version}/sightjack_#{version}_linux_arm64.tar.gz"
-      sha256 "32b27ac80bbc9d227a5368f8016c71a36e367357700b33e293a06aa112864baa"
+      sha256 "47c26ae5103af91ffdd57835c0c8c26231e147a92844a4695d197fa694013175"
     end
   end
 
