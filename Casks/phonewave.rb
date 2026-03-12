@@ -3,7 +3,7 @@ cask "phonewave" do
   name "phonewave"
   desc "D-Mail courier daemon"
   homepage "https://github.com/hironow/phonewave"
-  version "0.0.4"
+  version "0.0.5"
 
   livecheck do
     skip "Auto-generated on release."
@@ -14,22 +14,22 @@ cask "phonewave" do
   on_macos do
     on_intel do
       url "https://github.com/hironow/phonewave/releases/download/v#{version}/phonewave_#{version}_darwin_amd64.tar.gz"
-      sha256 "12dce5f06f6066882d7a5c8a962469798f6c1b49fd7ef7394e50c0e320d6d597"
+      sha256 "3ae104c719a7790e4b6f76b30964854c3e8d655e57058baa0b09f37781ead78b"
     end
     on_arm do
       url "https://github.com/hironow/phonewave/releases/download/v#{version}/phonewave_#{version}_darwin_arm64.tar.gz"
-      sha256 "ff2517e73b2022b5ca1ff09a6b1414dd4d039ba1f7239f6918e77e9ab5f9aba6"
+      sha256 "b0ec19cb60d3eb2aa89275eacaba493e2c7038e59373f3da5b0c527f32ebe220"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/hironow/phonewave/releases/download/v#{version}/phonewave_#{version}_linux_amd64.tar.gz"
-      sha256 "73dfcf3f86b67c1065587f994b3f08bd77088f033714bcf93a5e0c88f4021592"
+      sha256 "dbb85a71f9c534407cdb5c96d6f7b9e68777b49b709266968d3d156689004a4f"
     end
     on_arm do
       url "https://github.com/hironow/phonewave/releases/download/v#{version}/phonewave_#{version}_linux_arm64.tar.gz"
-      sha256 "11623b79c982154e2dfddcb745d0eab85bfcf3bca491ecfa60d8b3bd2f382634"
+      sha256 "335fdb1de902df23e40e571c3a49cfeb1a8291a9dc87d57cb84e2d8a6dc39793"
     end
   end
 
