@@ -3,7 +3,7 @@ cask "amadeus" do
   name "amadeus"
   desc "Divergence meter for your codebase"
   homepage "https://github.com/hironow/amadeus"
-  version "0.0.6"
+  version "0.0.7"
 
   livecheck do
     skip "Auto-generated on release."
@@ -14,22 +14,22 @@ cask "amadeus" do
   on_macos do
     on_intel do
       url "https://github.com/hironow/amadeus/releases/download/v#{version}/amadeus_#{version}_darwin_amd64.tar.gz"
-      sha256 "92ecb63ec86f8d648ff3b09b4a255fcb986baaca6190d2ad0b7b2b003a90b09e"
+      sha256 "d39c336a846cb933ec34905fb86b86717eb7d902c4e6f9c92ef2c34869cdf4a2"
     end
     on_arm do
       url "https://github.com/hironow/amadeus/releases/download/v#{version}/amadeus_#{version}_darwin_arm64.tar.gz"
-      sha256 "7f67f4ef1fb73cf5ae7f65396be37d613dde67bd8d581474d391c5ffb704a36a"
+      sha256 "d44225d36a6cd6a76709713991e897816d198aea34d40bcda1436f4829f1d7ce"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/hironow/amadeus/releases/download/v#{version}/amadeus_#{version}_linux_amd64.tar.gz"
-      sha256 "f80bc3e6d5f4183553a44472467999d33cb17c202378114b95e256066f783cbc"
+      sha256 "6d883b56f8997b235851e64e530deacdfaf7dab95a5c30e868e7f3d5961cdd97"
     end
     on_arm do
       url "https://github.com/hironow/amadeus/releases/download/v#{version}/amadeus_#{version}_linux_arm64.tar.gz"
-      sha256 "f47002d429e9b4663217a483034cf9cb0766930e4bd2ee15a9a04b670617e0ba"
+      sha256 "afa8bcbe306864f65641410d5be0796113b4dc792f9e39f62e7565d5ae43a41d"
     end
   end
 
