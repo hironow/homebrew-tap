@@ -3,7 +3,7 @@ cask "paintress" do
   name "paintress"
   desc "Claude Code expedition orchestrator"
   homepage "https://github.com/hironow/paintress"
-  version "0.0.7"
+  version "0.0.9"
 
   livecheck do
     skip "Auto-generated on release."
@@ -17,22 +17,22 @@ cask "paintress" do
   on_macos do
     on_intel do
       url "https://github.com/hironow/paintress/releases/download/v#{version}/paintress_#{version}_darwin_amd64.tar.gz"
-      sha256 "ecf5070b4080850cc2cace1eb78b4d8f9ed4d2eefcbe462834435e48ec5ac9d3"
+      sha256 "948263771816efff36178aad4a37852b21d9094fd7e298fbda69bb9986a3946a"
     end
     on_arm do
       url "https://github.com/hironow/paintress/releases/download/v#{version}/paintress_#{version}_darwin_arm64.tar.gz"
-      sha256 "5397cb4f395d072559e55b757ccc5d91c4bb372fcafbfcb4c4263c31b5b1cb77"
+      sha256 "c9bbe16f9a880477912aaa9e129f2caad92097e08a261aadc0e30b3165664590"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/hironow/paintress/releases/download/v#{version}/paintress_#{version}_linux_amd64.tar.gz"
-      sha256 "ebcaeaa098aeb358cc7178e7e1fbad9a6577bb6940376f929ad0f8fe7a079e09"
+      sha256 "50d2502a08bb2cf9d8f98417de2882214156e8177826d998faf7093b281ac294"
     end
     on_arm do
       url "https://github.com/hironow/paintress/releases/download/v#{version}/paintress_#{version}_linux_arm64.tar.gz"
-      sha256 "32c4f820ec47f1f2bcfbbd2274acf0ff7ed65221a2dc22b3dd4c663730246a0d"
+      sha256 "afa9ad1aece683bcae1723a1bb54cdcdba0b6e7f8cff3c8d981e5520fd04a649"
     end
   end
 
