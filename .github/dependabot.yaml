@@ -1,0 +1,22 @@
+version: 2
+
+# One Dependabot pull request per week for the whole repo (owner ruling
+# 2026-09-14): every ecosystem below joins the `weekly` group, whose schedule is
+# this repo's slot on a weeknight JST (hub `just dependabot-slot <repo>`) — one CI
+# run on the runner pool per repo per week instead of one per ecosystem, and no
+# org-wide Monday burst. The per-ecosystem cooldown and labels are unchanged;
+# commit-message and open-pull-requests-limit live on the group (Dependabot
+# refuses them on the entries).
+multi-ecosystem-groups:
+  weekly:
+    schedule:
+      interval: "weekly"
+      day: "friday"
+      time: "16:55"
+      timezone: "Etc/UTC"
+
+updates:
+  - package-ecosystem: github-actions
+    patterns: ["*"]
+    multi-ecosystem-group: "weekly"
+    directory: /
